@@ -1,0 +1,1279 @@
+/*--------------------------------------------------Подключение Шрифтов--------------------------------------------------*/
+
+@font-face {
+  font-family: "OpenSansBlod";
+  src: url(../fonts/Open_Sans/OpenSans-Bold.ttf);
+}
+
+@font-face {
+  font-family: "RalewayLight";
+  src: url(../fonts/Raleway/Raleway-Light.ttf);
+}
+
+@font-face {
+  font-family: "RalewayRegular";
+  src: url(../fonts/Raleway/Raleway-Regular.ttf);
+}
+
+@font-face {
+  font-family: "RalewaySemiBold";
+  src: url(../fonts/Raleway/Raleway-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: "RalewayBold";
+  src: url(../fonts/Raleway/Raleway-Bold.ttf);
+}
+
+@font-face {
+  font-family: "CardoItalic";
+  src: url(../fonts/Cardo/Cardo-Italic.ttf);
+}
+
+/*--------------------------------------------------Общие Настройки--------------------------------------------------*/
+
+*,
+*:before,
+*:after{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: "RalewayRegular";
+    font-size: 14px;
+    color: #6c7279;
+    background-color: #fff;
+    -webkit-font-smoothing: antialiased;/*Немного сглаживает шрифты*/
+}
+
+body.no-scroll{
+    overflow: hidden;
+}
+
+.container{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;  
+    padding: 0 15px;
+}
+
+h1,h2,h3,h4,h5,h6{
+    margin: 0;
+}
+
+p{
+    margin: 0 0 10px;
+}
+
+.text{
+    line-height: 1.5;
+    font-size: 14px;
+    color: #6c7279;
+    font-family: "RalewayRegular";
+    font-weight: 400;
+}
+
+/*--------------------------------------------------Настройки Preloader--------------------------------------------------*/
+
+.preloader{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #31344e, #6e75ab);
+    z-index: 1001;
+    transition: 1s all;
+    opacity: 1;
+    visibility: visible;
+}
+
+.loader{
+    width: 75px;
+    height: 75px;
+    border: 10px solid #fff;
+    border-radius: 50%;
+    border-top-color: #00f;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    animation: 2s spin infinite linear;
+}
+
+.done{
+    opacity: 0;
+    visibility: hidden;
+}
+
+@keyframes spin{
+    from{
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to{
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/*--------------------------------------------------Настройки Header--------------------------------------------------*/
+
+.header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.header.fixed{
+    position: fixed;
+    background-color: #31344e;
+    height: auto;
+}
+
+.header.fixed .header__inner{
+    padding: 15px 0;
+    border-bottom: none;
+}
+
+.header__inner{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #515369;
+    padding: 35px 0;
+    align-items: center;
+}
+
+.header__logo{
+    cursor: pointer;
+}
+
+/*--------------------------------------------------Настройки Nav--------------------------------------------------*/
+
+.nav{
+    display: flex;
+    font-size: 13px;
+    font-family: "RalewayBold";
+    text-transform: uppercase;
+}
+
+.nav__link{
+    margin-left: 50px;
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.75;
+    transition: opacity 0.1s linear;
+    border-bottom: 2px solid transparent;
+}
+
+.nav__lin:first-child{
+    margin-left: 0;
+}
+
+.nav__link:hover{
+    opacity: 1;
+}
+
+.nav__link.active{
+    opacity: 1;
+    border-bottom-color: #fff;
+}
+
+/*--------------------------------------------------Настройки Intro--------------------------------------------------*/
+
+.intro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;/*Текст по центру экрана*/
+    height: 750px;
+    background: #31344e url("../img/intro-bg.jpg") center no-repeat;
+    background-size: cover;
+    padding-top: 100px;   
+}
+
+.intro__inner{
+    width: 100%;
+    max-width: 970px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.intro__title{
+    margin: 0 0 30px;
+    font-family: "OpenSansBlod";
+    font-size: 65px;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.1; /*Относительно fz65 1-65px, 0.1-6.5, 1.1=71px*/
+}
+
+.intro__subtitle{
+    font-size: 22px;
+    color: #fff;
+    font-family: "RalewayRegular";
+    line-height: 1.5;
+    font-weight: 400;
+    margin-bottom: 60px;
+}
+
+/*--------------------------------------------------Настройки Btn--------------------------------------------------*/
+
+.btn{ /*Обязательно сравнивать кнопку с тегом "a" с кнопкой с тегом "button"*/
+    display: inline-block;
+    padding: 14px 40px;
+    vertical-align: top;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: "RalewaySemiBold";
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    border: 0;
+    cursor: pointer;
+    transition: background 0.1s linear;
+    text-align: center;
+}
+
+.btn__red{
+    background-color: #e84545;
+}
+
+.btn__red:hover{
+    background-color: #dd3434;
+}
+
+/*--------------------------------------------------Настройки Features--------------------------------------------------*/
+
+.features{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 95px 0;
+}
+
+.features__item{
+    width: 33.3333%;
+    text-align: center;
+    padding: 0 40px;
+    margin: 25px 0;
+}
+
+.features__icon{
+    margin-bottom: 25px;
+}
+
+.features__title{
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: "RalewayBold";
+    color: #2d3033;
+    margin-bottom: 20px;
+}
+
+.features__text{
+    
+}
+
+/*--------------------------------------------------Настройки Works--------------------------------------------------*/
+
+/*
+.works{
+    display: flex;
+    flex-wrap: wrap;
+}
+*/
+
+.works__inner{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.works__menu{
+    display: flex;
+    position: absolute;
+    z-index: 200;
+    top: 0;
+    left: 0;
+    margin-top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.works__menu a{
+    font-family: "RalewayBold";
+    font-weight: 18;
+    color: #000;
+    text-transform: uppercase;
+    text-decoration: none;
+    opacity: 0.5;
+    transition: color 0.2s linear;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    padding: 10px 0;
+    margin-left: 30px;
+    transition: opacity 0.3s linear, color 0.3s linear;
+}
+
+.works__menu a:first-child{
+    margin-left: 0;
+}
+
+.works__menu a:hover,
+.works__menu a:focus{
+    opacity: 1;
+    border-color: #000;
+}
+
+.works__item{
+    width: 25%;
+    position: relative;
+    overflow: hidden;
+    height: 350px;
+    transition: opacity 0.2s linear;
+    border-bottom: 1px solid #fff;
+    border-right: 1px solid #fff;
+}
+
+.works__item:hover .works__content{
+    opacity: 1;
+}
+
+.works__photo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    transform: translate3d(-50%, -50%, 0);
+    min-width: 100%;
+}
+
+.works__content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(232, 69, 69, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    opacity: 0;
+}
+
+.works__title{
+    margin-bottom: 5px;
+    color: #fff;
+    font-size: 14px;
+    font-family: "RalewayBold";
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.works__text{
+    color: #fff;
+    font-size: 14px;
+    font-family: "RalewayBold";
+    font-weight: 700;
+}
+
+/*--------------------------------------------------Настройки Team--------------------------------------------------*/
+
+.team{
+    margin: 100px 0 70px;
+}
+
+.team__inner{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.team__item{
+    width: 25%;
+    padding: 0 15px;
+    margin-bottom: 30px;
+}
+
+.team__photo{
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.team__name{
+    font-size: 22px;
+    font-weight: 400;
+    font-family: "RalewayRegular";
+    color: #2d3033;
+    margin-bottom: 8px;
+}
+
+.team__prof{
+    font-family: "RalewayRegular";
+    font-weight: 400;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: #e84545;
+    margin-bottom: 15px;
+}
+
+.team__text{
+    margin-bottom: 20px;
+}
+
+/*--------------------------------------------------Настройки Social--------------------------------------------------*/
+
+.social{
+    display: flex;
+}
+
+.social__item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border: 1px solid #e8ecee;
+    margin-right: 4px;
+    transition: background 0.1s linear;
+}
+
+.social__item:hover{
+    background-color: #e8ecee;
+}
+
+.social__item:hover .social__icon{
+    fill: #000;
+}
+
+.social__icon{
+    display: block;
+    height: 18px;
+    fill: #c6cacc;
+    transition: fill 0.1s linear;
+}
+
+/*--------------------------------------------------Настройки Reviews--------------------------------------------------*/
+
+.reviews{
+    background-color: #53354a;
+    overflow: hidden;
+}
+
+.reviews__slider{
+    height: 500px;
+    overflow: hidden;
+}
+
+.reviews__slider.slick-initialized{
+    height: auto;
+}
+
+.reviews__item{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.reviews__photo{
+    width: 50%;
+    height: 500px;
+    position: relative;
+}
+
+.reviews__img{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    z-index: 1;
+    transform: translateY(-50%);
+}
+
+.reviews__content{
+    width: 50%;
+    padding-left: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.reviews__text{
+    font-size: 36px;
+    line-height: 1.2;
+    font-family: "CardoItalic";
+    color: #fff;
+    margin-bottom: 25px;
+}
+
+.reviews__author{
+    font-size: 13px;
+    font-weight: 700;
+    font-family: "RalewaySemiBold";
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.slick-dots{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0 0 10px;
+    list-style: none;
+    width: 50%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+}
+
+.slick__item{
+    outline: none;
+}
+
+.slick-dots li{
+    margin: 0 5px;
+}
+
+.slick-dots button{
+    background: #fff;
+    border: none;
+    font-size: 0;
+    color: transparent;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    opacity: 0.5;  
+    cursor: pointer;
+}
+
+.slick-dots button:focus{
+    outline: none;
+}
+
+.slick-dots .slick-active button{
+    opacity: 1;
+    cursor: default;
+}
+
+/* Works Slider */
+
+.slick-slider{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.slick-list{
+    height: 100%;
+}
+
+.slick-track{
+    height: 100%;
+}
+
+#worksSlider .slick-dots{
+    display: flex;
+    position: absolute;
+    justify-content: left;
+}
+
+#worksSlider .slick-dots button{
+    border: 1px solid #fff;
+    background: transparent;
+    opacity: 1;
+}
+
+#worksSlider .slick-dots button:focus{
+    background-color: #fff;
+}
+
+#worksSlider .slick-dots .slick-active button{
+    background-color: #fff;
+}
+
+/*--------------------------------------------------Настройки Download--------------------------------------------------*/
+
+.download{
+    margin: 90px 0;
+    text-align: center;
+}
+
+.download__title{
+    font-size: 28px;
+    font-weight: 300;
+    font-family: "RalewayLight";
+    color: #2d3033;
+    margin-bottom: 10px;
+}
+
+.download__text{
+    font-size: 13px;
+    font-weight: 700;
+    font-family: "RalewayBold";
+    color: #2d3033;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.btn__long{
+    min-width: 280px;
+}
+
+/*--------------------------------------------------Настройки Footer--------------------------------------------------*/
+
+.footer{
+    background-color: #3a3e64;
+}
+
+.footer__inner{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 70px 0;
+}
+
+.footer__block{
+    width: 33.3333%;
+    text-align: center;
+    padding: 0 15px;
+}
+
+.footer__title{
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 700;
+    font-family: "RalewayBold";
+    margin-bottom: 10px;
+}
+
+.footer__adress{
+    font-style: normal;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.social__footer{
+    justify-content: center;
+}
+
+.social__footer .social__item{
+    background: transparent;
+    border-width: 2px;
+    border-color: #fff;
+    border-radius: 2px;
+}
+
+.social__footer .social__item:hover{
+    background-color: #fff;
+}
+
+.social__footer .social__icon{
+    fill: #fff;
+}
+
+.footer__text{
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/*--------------------------------------------------Настройки Copyright--------------------------------------------------*/
+
+.copyright{
+    background-color: #313454;
+    padding: 20px 0;
+}
+
+.copyright__text{
+    text-align: center;
+    color: #808080;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.copyright__text span{
+    color: #fff;
+}
+
+.heart{
+    color: red;
+}
+
+/*--------------------------------------------------Настройки Burger--------------------------------------------------*/
+
+.burger{
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 9px 2px;
+    outline: none;
+}
+
+.burger__item{
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: #fff;
+    font-size: 0;
+    color: transparent;
+    position: relative;  
+}
+
+.burger__item:before,
+.burger__item:after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    background-color: #fff;
+}
+
+.burger__item:before{
+    top: -8px;
+    width: 30px;
+}
+
+.burger__item:after{
+    bottom: -8px;
+    width: 26px;
+}
+
+/*--------------------------------------------------Настройки Modals--------------------------------------------------*/
+
+.modal{
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(6, 15, 49, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 1rem;
+    overflow: auto;
+}
+
+.modal.modal-show{
+    display: flex;
+}
+
+.modal__dialogs{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    background-color: #fff;
+    position: relative;
+    transform: rotateX(90deg);
+    transition: transform 0.2s linear;
+}
+
+.modal__dialogs-small{
+    max-width: 900px;
+}
+
+.modal-close{
+    position: absolute;
+    top: 0.9rem;
+    right: 0.9rem;
+    z-index: 1;
+    width: 34px;
+    height: 39px;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.2s linear;
+}
+
+.modal-close:hover{
+    transform: translateY(-3px);
+}
+
+.modal-work{
+    display: flex;
+}
+
+.modal-work__preview{
+    width: 64%;
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-work__photo{
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   z-index: 1;
+   transform: translate3d(-50%, -50%, 0);
+}
+
+.modal-work__content{
+    position: relative;
+    width: 36%;
+    padding: 3.4rem 6.6rem 1rem 1.73rem;
+}
+
+.modal-work__header{
+    margin-bottom: 2.2rem;
+}
+
+.modal-work__title{
+    margin-bottom: 0.2rem;
+    font-size: 2.12rem;
+    color: #000;
+    font-weight: 700;
+    font-family: "RalewaySemiBold";
+    text-transform: uppercase;
+}
+
+.modal-work__info{
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    color: #6a6968;
+}
+
+.modal-work__info-divider{
+    margin: 0 1rem;
+}
+
+.modal-work__client{
+    margin-bottom: 2.2rem;
+}
+
+.modal-work__client-title{
+    margin-bottom: 0.2rem;
+    font-size: 1.6rem;
+    color: #000;
+    font-weight: 700;
+    
+}
+
+.modal-work__client-company{
+    font-size: 0.94rem;
+    font-style: italic;
+    color: #6a6968;
+}
+
+.modal-work__text{
+    margin-bottom: 8.66rem;
+    font-size: 0.9rem;
+    color: #6a6968;
+    line-height: 2;
+    font-weight: 300;
+}
+
+.modal-work__footer{
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 100%;
+    padding: 0 1.8rem 1rem;
+}
+
+.modal-work__btn{
+    font-size: 0.94rem;
+    font-weight: 700;
+    color: #000;
+    text-transform: uppercase;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: inherit;
+    cursor: pointer;
+    outline: none;
+    opacity: 0.6;
+}
+
+.modal-work__btn:hover{
+    opacity: 1;
+}
+
+.modal__title{
+    margin-bottom: 3.6rem;
+    font-size: 3rem;
+    color: #000;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.modal__subtitle{
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    color: #000;
+    font-weight: 400;
+}
+
+.contact{
+    display: flex;
+    background: url(https://placehold.it/477x720) right center no-repeat;
+}
+
+.contact__left{
+    width: 47%;
+    padding: 2rem;
+    left: 0;
+}
+
+.mb-0{
+    margin-bottom: 0;
+}
+
+.contact__info{
+    margin: 2rem 0 3rem;
+    padding: 0;
+    list-style: none;
+    font-size: 0.94rem;
+    color: #000;
+    font-weight: 300;
+}
+
+.contact__info img{
+    height: 15px;
+}
+
+.contact__info-item{
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.contact__info-item:last-child{
+    margin-bottom: 0;
+}
+
+.contact__info-icon{
+    margin-right: 0.75rem;
+}
+
+.form{
+    
+}
+
+.form__group{
+    margin-bottom: 1.8rem;
+}
+
+.form__label{
+    font-size: 0.8em;
+    color: #000;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 0.6rem;
+}
+
+.form__input,
+.form__textarea{
+    display: block;
+    width: 100%;
+    padding: 1.3rem 1.8rem;
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 1.2;
+    border: 1px solid #707070;
+    opacity: 0.3;
+    border-radius: 1.8rem;
+    transition: color 0.2s linear, opacity 0.2s linear;
+}
+
+.form__input,
+.form__textarea::placeholder{
+    color: #000;
+}
+
+.form__input:focus,
+.form__textarea:focus{
+    outline: none;
+    border-color: #36abc7;
+    opacity: 1;
+}
+
+.form__textarea{
+    height: 200px;
+    resize: none;
+}
+
+.text-right{
+    float: right;
+}
+
+.modal-btn{
+    width: 150px;
+    display: inline-block;
+    background-color: #000;
+    padding: 14px 40px;
+    vertical-align: top;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: "RalewaySemiBold";
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2rem;
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.1s linear, color 0.1s linear;
+}
+
+.modal-btn:hover{
+    border-color: #36abc7;
+    background-color: #fff;
+    color: #000;
+}
+
+/*--------------------------------------------------Настройки Media--------------------------------------------------*/
+
+@media (max-width: 1300px){
+    /*Works*/
+    .works__item{
+        width: 50%;
+    }
+    .works__menu{
+        margin-top: -60px;
+    }
+}
+
+
+
+@media (max-width: 991px){
+    /*Nav*/
+    .nav{
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: right;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #31344e;
+    }
+    .nav.show{
+        display: flex;
+    }
+    .nav__link{
+        padding: 9px 15px;
+    }
+    
+    /*Intro*/
+    .intro__title{
+        font-size: 40px;
+    }
+    
+    /*Burger*/
+    .burger{
+        display: block;
+    }
+    
+    /*Features*/
+    .features__item{
+        width: 50%;
+    }
+    
+    
+    /*Team*/
+    .team__item{
+        width: 50%;
+        text-align: center;
+    }
+    .team__photo{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    /*Social*/
+    .social{
+        justify-content: center;
+    }
+    
+    /*Reviews*/
+    .reviews__photo{
+        width: 100%;
+        overflow: hidden;
+        margin: 15px 0 40px;
+    }
+    .reviews__content{
+        width: 100%;
+        padding-left: 0;
+        padding-bottom: 40px;
+    }
+    
+    /*Footer*/
+    .footer__inner{
+        padding: 30px 0;
+    }
+    .footer__block{
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        margin-bottom: 30px;
+    }
+    .footer__block:last-child{
+        margin-bottom: 0;
+    }
+}
+
+
+
+@media (max-width: 767px){
+    /*Intro*/
+    .intro{
+        height: auto;
+        padding-top: 130px;
+        padding-bottom: 30px;
+    }
+    .intro__title{
+        font-size: 30px;
+    }
+    .intro__subtitle{
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+    
+     /*Features*/
+    .features{
+        margin: 40px 0 80px 0;
+    }
+    .features__item{
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    /*Works*/
+    .works__menu{
+        margin-top: -70px;
+    }
+    .works__menu a{
+        padding: 5px 0px;
+        font-size: 12px;
+        margin-left: 25px;
+    }
+    .works__item{
+        width: 100%;
+        height: 300px;
+    }
+    
+    /*Team*/
+    .team{
+        margin: 60px 0 30px;
+    }
+    .team__item{
+        width: 100%;
+    }
+    
+    /*Reviews*/
+    .reviews__text{
+        font-size: 25px;
+    }
+    
+    /*Download*/
+    .download{
+        margin: 50px 0;
+    }
+    .download__title{
+        font-size: 24px;
+    }
+    
+    /*Btn*/
+    .btn__long{
+        min-width: 260px;
+    }
+}
+
+
+
+@media (max-width: 414px){
+    /*Works*/
+    .works__menu a{
+        padding: 5px 0px;
+        font-size: 12px;
+        margin-left: 20px;
+    }
+    
+    /*Reviews*/
+    .works__item{
+        border-right: 0;
+    }
+    .reviews__img{
+        right: -120px;
+    }
+}
+
+
+
+@media (max-width: 375px){
+    /*Features*/
+    .features{
+        margin: 40px 0 60px 0;
+    }
+    
+    
+    /*Works*/
+    .works__menu{
+        margin-top: -50px;
+    }
+    .works__menu a{
+        padding: 5px 0px;
+        font-size: 12px;
+        margin-left: 10px;
+    }
+    
+    /*Reviews*/
+    .works__item{
+        border-right: 0;
+    }
+}
+
+
+
+@media (max-width: 320px){
+    /*Features*/
+    .features{
+        margin: 40px 0 60px 0;
+    }
+    
+    
+    /*Works*/
+    .works__menu{
+        margin-top: -50px;
+    }
+    .works__menu a{
+        padding: 5px 0px;
+        font-size: 10px;
+        margin-left: 10px;
+    }
+    
+    /*Reviews*/
+    .works__item{
+        border-right: 0;
+    }
+
+}
+
+@media (max-width: 280px){  
+    /*Works*/
+    .works__menu a{
+        padding: 5px 0px;
+        font-size: 9px;
+        margin-left: 10px;
+    }
+
+}
